@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filler</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Testing, testing 1 2 3</h1>
+    <div class="container">
+        <h1>Filler!</h1>
+        <div class="lobby">
+            <h2>Lobby</h2>
+            <div class="game-list">
+                <p>No games currently available.</p>
+
+            </div>
+            <button id="create-game">Create Game</button>
+        </div>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        // Your client-side JavaScript can go here
-    </script>
+    <script src="app.js"></script> 
 </body>
 </html>
