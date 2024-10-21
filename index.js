@@ -9,7 +9,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 // Serve static files
-app.use(express.static(path.resolve("public"))); // Adjust path as needed
+app.use(express.static(path.join(__dirname))); // Serve files from the current directory
 
 // Socket.IO connection
 io.on("connection", (socket) => {
