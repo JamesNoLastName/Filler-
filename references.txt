@@ -1,1 +1,6 @@
 npx nodemon index.js: Start server
+
+http://localhost:3000/  Port link
+
+npm i http nodemon express socket.io        Install reqs
+
