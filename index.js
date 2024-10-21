@@ -32,7 +32,7 @@ io.on("connection", (socket) => {
 
 // Serve the main HTML page
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/index.html"));
+    res.sendFile(path.resolve("index.html"));
 });
 
 // Start the server
