@@ -7,16 +7,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="dashboard">
+        <button id="logo">
+            <img src="media/filler.png" alt="Filler Logo" style="width: 24px; height: 24px;">
+        </button>
+
+
+        Filler!
+
+        
+        <div class="dashboard-utilities">
+            <!-- Add any utility buttons or links here -->
+            <button class="utility-button">Utility 1</button>
+            <button class="utility-button">Utility 2</button>
+        </div>
+    </div>
+    
     <div class="container">
         <h1>Filler!</h1>
         <div class="lobby">
             <h2>Lobby</h2>
-            <div class="game-list">
-                <p>No games currently available.</p>
-
+            <div class="game-list-container">
+                <div class="game-list">
+                    <p>No games currently available.</p>
+                </div>
             </div>
             <button id="create-game">Create Game</button>
-        </div>
+        </div>        
     </div>
     
     <script src="/socket.io/socket.io.js"></script>
