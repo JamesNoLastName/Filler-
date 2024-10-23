@@ -1,4 +1,6 @@
-npx nodemon index.js: Start server
+npx nodemon index.js
+
+ Start server
 
 http://localhost:3000/  Port link
 
