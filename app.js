@@ -1,7 +1,7 @@
 const gameList = [];
 
-const players = ['1', '2']; // Renamed to plural
-const times = ['1 + 0', '1 + 1', '3 + 2', '5 + 0', '5 + 3', '10 + 0', '10 + 10', '30 + 0'];
+const players = ['Yes', 'No']; // Renamed to plural
+const times = ['1+0', '1+1', '3+2', '5+0', '5+3', '10+0', '10+10', '30+0'];
 const boardSizes = ['7x6', '7x7', '8x8', '8x10', '10x10', '15x15'];
 const modes = ['Classic', 'Square'];
 
@@ -13,13 +13,14 @@ function initializeGameList() {
 }
 
 function getRandomGame() {
-    const gameName = `Bot Game ${Math.floor(Math.random() * 100)}`;
+    //const gameName = `Bot Game ${Math.floor(Math.random() * 100)}`;
+    const gameName = '';
     const player = players[Math.floor(Math.random() * players.length)];
     const time = times[Math.floor(Math.random() * times.length)];
     const boardSize = boardSizes[Math.floor(Math.random() * boardSizes.length)];
     const mode = modes[Math.floor(Math.random() * modes.length)];
     
-    return { gameName, player, time, boardSize, mode }; // Return an object with game details
+    return { player, time, boardSize, mode }; // Return an object with game details
 }
 
 // Add a game to the list
@@ -46,22 +47,20 @@ function updateGameList() {
         gameListDiv.innerHTML = '<p>No games currently available.</p>';
     } else {
         // Build the HTML string
-        let htmlString = '';
+        let htmlString = '<table class="game-list-table"><tbody>'; // Add table and tbody tags
 
         gameList.forEach(game => {
             htmlString += `
-                <div class="game-item">
-                    <p>
-                        <span class="game-info">${game.gameName}</span> | 
-                        <span class="game-info">${game.player}</span> | 
-                        <span class="game-info">${game.time}</span> | 
-                        <span class="game-info">${game.boardSize}</span> | 
-                        <span class="game-info">${game.mode}</span>
-                    </p>
-                </div>
+                <tr class="game-item">
+                    <td>${game.player}</td>  
+                    <td>${game.time}</td>  
+                    <td>${game.boardSize}</td>  
+                    <td>${game.mode}</td>
+                </tr>
             `;
         });
 
+        htmlString += '</tbody></table>'; // Close tbody and table tags
         gameListDiv.innerHTML = htmlString;
     }
 }
