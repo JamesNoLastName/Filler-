@@ -1,6 +1,10 @@
 const gameList = [];
 
-// Function to initialize game list with random games
+const players = ['1', '2']; // Renamed to plural
+const times = ['1 + 0', '1 + 1', '3 + 2', '5 + 0', '5 + 3', '10 + 0', '10 + 10', '30 + 0'];
+const boardSizes = ['7x6', '7x7', '8x8', '8x10', '10x10', '15x15'];
+const modes = ['Classic', 'Square'];
+
 function initializeGameList() {
     const numGames = Math.floor(Math.random() * 3) + 2; // Randomly choose between 2 to 4 games
     for (let i = 0; i < numGames; i++) {
@@ -8,16 +12,20 @@ function initializeGameList() {
     }
 }
 
-// Random game generator
 function getRandomGame() {
     const gameName = `Bot Game ${Math.floor(Math.random() * 100)}`;
-    return gameName;
+    const player = players[Math.floor(Math.random() * players.length)];
+    const time = times[Math.floor(Math.random() * times.length)];
+    const boardSize = boardSizes[Math.floor(Math.random() * boardSizes.length)];
+    const mode = modes[Math.floor(Math.random() * modes.length)];
+    
+    return { gameName, player, time, boardSize, mode }; // Return an object with game details
 }
 
 // Add a game to the list
 function addGame() {
-    const gameName = getRandomGame();
-    gameList.push(gameName); // Add new game to the list
+    const game = getRandomGame();
+    gameList.push(game); // Add new game to the list
     updateGameList();
 }
 
@@ -30,7 +38,6 @@ function removeGame() {
     }
 }
 
-// Update the game list display
 function updateGameList() {
     const gameListDiv = document.querySelector('.game-list');
     gameListDiv.innerHTML = ''; // Clear current list
@@ -38,20 +45,30 @@ function updateGameList() {
     if (gameList.length === 0) {
         gameListDiv.innerHTML = '<p>No games currently available.</p>';
     } else {
+        // Build the HTML string
+        let htmlString = '';
+
         gameList.forEach(game => {
-            const gameItem = document.createElement('div');
-            gameItem.className = 'game-item';
-            gameItem.textContent = game;
-            gameListDiv.appendChild(gameItem);
+            htmlString += `
+                <div class="game-item">
+                    <p>
+                        <span class="game-info">${game.gameName}</span> | 
+                        <span class="game-info">${game.player}</span> | 
+                        <span class="game-info">${game.time}</span> | 
+                        <span class="game-info">${game.boardSize}</span> | 
+                        <span class="game-info">${game.mode}</span>
+                    </p>
+                </div>
+            `;
         });
+
+        gameListDiv.innerHTML = htmlString;
     }
 }
 
-// Initialize the game list with random games
 initializeGameList();
 updateGameList();
 
-// Randomly add and remove games at intervals
 setInterval(() => {
     addGame();
     const removeDelay = ((Math.random() * (8000 - 3000 + 1))) + 1234;
