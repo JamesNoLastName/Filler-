@@ -6,27 +6,38 @@
     <title>Filler</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="dashboard">
-        <button id="logo">
-            <img src="media/filler.png" alt="Filler Logo" style="width: 24px; height: 24px;">
-        </button>
-
-
-        Filler!
-
-        
-        <div class="dashboard-utilities">
-            <!-- Add any utility buttons or links here -->
-            <button class="utility-button">Utility 1</button>
-            <button class="utility-button">Utility 2</button>
-        </div>
+    <div class="blob-c">
+        <div class="shape-blob"></div>
+        <div class="shape-blob one"></div>
+        <div class="shape-blob two"></div>
+        <div class="shape-blob three"></div>
+        <div class="shape-blob four"></div>
+        <div class="shape-blob five"></div>
+        <div class="shape-blob six"></div>
     </div>
-    
+
     <div class="container">
-        <h1>Filler!</h1>
+        <div class="dashboard">
+            <button id="logo">
+                <img src="media/filler.png" alt="Filler Logo" style="width: 24px; height: 24px;">
+            </button>
+            <h2 style="color: white;">FILLER</h2>
+            <div class="dashboard-utilities">
+                <button class="utility-button">Utility 1</button>
+                <button class="utility-button">Utility 2</button>
+            </div>
+        </div>
+        
         <div class="lobby">
-            <h2>Lobby</h2>
+            <h2 style="color: white;">Lobby</h2>
+            <div class="game-options">
+                <span>Play as Player</span>
+                <span>Time</span>
+                <span>Board Size</span>
+                <span>Mode</span>
+            </div>
             <div class="game-list-container">
                 <div class="game-list">
                     <p>No games currently available.</p>
@@ -39,4 +50,5 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="app.js"></script> 
 </body>
+
 </html>
