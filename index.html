@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filler</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blobs.css">
 </head>
 
 <body>
@@ -24,29 +25,36 @@
                 <img src="media/filler.png" alt="Filler Logo" style="width: 24px; height: 24px;">
             </button>
             <h2 style="color: white;">FILLER</h2>
+            
             <div class="dashboard-utilities">
-                <button class="utility-button">Utility 1</button>
-                <button class="utility-button">Utility 2</button>
+                <button id="settingsButton">
+                    <img src="media/settings.svg" alt="Settings" style="width: 24px; height: 24px;">
+                </button>            
             </div>
         </div>
         
         <div class="lobby">
             <h2 style="color: white;">Lobby</h2>
-            <table class="game-options-table">
-                <tr>
-                    <td>First?</td>
-                    <td>Time</td>
-                    <td>Board Size</td>
-                    <td>Mode</td>
-                </tr>
-            </table>            
+            <div class="game-options-container">
+                <table class="game-options-table">
+                    <tr>
+                        <td>First?</td>
+                        <td>Time</td>
+                        <td>Size</td>
+                        <td>Mode</td>
+                    </tr>
+                </table>
+            </div>
+            
             <div class="game-list-container">
                 <div class="game-list">
                     <p>No games currently available.</p>
                 </div>
             </div>
+            
             <button id="create-game">Create Game</button>
-        </div>        
+        </div>
+               
     </div>
     
     <script src="/socket.io/socket.io.js"></script>
