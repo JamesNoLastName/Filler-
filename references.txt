@@ -8,3 +8,4 @@ npm i http nodemon express socket.io        Install reqs
 
 fnm use --install-if-missing 20
 
+fnm env --use-on-cd | Out-String | Invoke-Expression
