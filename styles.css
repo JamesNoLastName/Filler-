@@ -165,9 +165,9 @@ button:hover {
 }
 
 .greyed-out {
-    opacity: 0.3; /* Lower opacity for a stronger greyed-out effect */
-    background-color: rgba(255, 255, 255, 0.5); /* Add a light grey background */
-    filter: brightness(0.7); /* Slightly darkens the item */
+    opacity: 0.3;
+    background-color: rgba(255, 255, 255, 0.5); 
+    filter: brightness(0.7);
     transition: opacity 0.5s ease, background-color 0.5s ease;
 }
 .game-window {
