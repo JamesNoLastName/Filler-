@@ -195,15 +195,15 @@ button:hover {
 
 #gameBoard {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 48px); 
+    grid-template-columns: repeat(auto-fill, 4vh); 
     gap: 0;
     background-color: #2e2e2e;
     margin: auto; 
 }
 
 .cell {
-    width: 48px; 
-    height: 48px; 
+    width: 5vh; 
+    height: 5vh; 
     background-color: #3b3b3b; 
     color: #ffffff; 
     text-align: center; 
