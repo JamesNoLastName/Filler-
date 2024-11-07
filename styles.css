@@ -171,6 +171,7 @@ button:hover {
     filter: brightness(0.7);
     transition: opacity 0.5s ease, background-color 0.5s ease;
 }
+
 .game-window {
     position: fixed;
     top: 0;
@@ -183,38 +184,70 @@ button:hover {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .game-content {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    overflow-y: hidden; 
+    justify-content: flex-start; 
+    flex-grow: 1; 
+    overflow: hidden; 
 }
 
 #gameBoard {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 4vh); 
     gap: 0;
     background-color: #2e2e2e;
-    margin: auto; 
+    margin: 0;
+    max-width: 100%;
+    max-height: 100%; 
 }
 
 .cell {
-    width: 5vh; 
-    height: 5vh; 
-    background-color: #3b3b3b; 
-    color: #ffffff; 
-    text-align: center; 
+    background-color: #3b3b3b;
+    color: #ffffff;
+    text-align: center;
     vertical-align: middle;
-    cursor: pointer; 
-    transition: background-color 0.3s; 
-    border: 2px solid #ffffff; 
-    box-sizing: border-box; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
 }
 
-.cell:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
+.color-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1rem; 
+    width: flex;
+    padding: 10px;
+    position: relative; 
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 8px;
 }
+
+.color-button {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.color-button:hover {
+    transform: scale(1.1);
+}
+
+#colorButtons .red { background-color: red; }
+#colorButtons .blue { background-color: blue; }
+#colorButtons .yellow { background-color: yellow; }
+#colorButtons .green { background-color: green; }
+#colorButtons .black { background-color: black; }
+#colorButtons .magenta { background-color: magenta; }
+
