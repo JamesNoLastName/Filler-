@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filler Game</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="blobs.css">
+    <link rel="stylesheet" href="css/gameboard.css">
+    <link rel="stylesheet" href="css/fillerui.css">
+    <link rel="stylesheet" href="css/blobs.css">
 </head>
 <body>
     <div class="blob-c">
@@ -56,13 +57,21 @@
             <div class="game-content">
                 <p id="gameDetails"></p>
                 <div id="gameBoard"></div>
-                <div id="colorButtons" class="color-buttons-container"></div> 
+                <div id="colorButtons" class="color-buttons-container">
+                    <button type="button" id="green" class="button" style="background-color:rgb(0, 255, 0);"></button>
+                    <button type="button" id="red" class="button" style="background-color:rgb(255, 0, 0);"></button>
+                    <button type="button" id="blue" class="button" style="background-color:rgb(0, 255, 255);"></button>
+                    <button type="button" id="yellow" class="button" style="background-color:rgb(255, 255, 0);"></button>
+                    <button type="button" id="black" class="button" style="background-color:rgb(0, 0, 0);"></button>
+                    <button type="button" id="magenta" class="button" style="background-color:rgb(128, 0, 128);"></button>
+                </div>
             </div>
         </div>        
     </div>
     
     <script src="/socket.io/socket.io.js"></script>
-    <script src="app.js"></script>
-    <script src="logic.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/gameui.js"></script>
+    <script src="scripts/logic.js"></script>
 </body>
 </html>
