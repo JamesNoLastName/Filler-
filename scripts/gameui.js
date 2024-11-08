@@ -1,4 +1,4 @@
-let board = [];  // 2D array to represent the grid of tiles
+let board = [];  
 
 function createGameGrid(rows, cols) {
     const gameBoard = document.getElementById('gameBoard');
@@ -21,7 +21,7 @@ function createGameGrid(rows, cols) {
         for (let j = 0; j < cols; j++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
-            board[i][j] = cell;
+            board[i][j] = cell; 
             gameBoard.appendChild(cell);
         }
     }
@@ -45,6 +45,11 @@ function createGameGrid(rows, cols) {
     }
 
     function checkAdjacentColor(i, j, color) {
+        console.log(`Checking cell at [${i}, ${j}] with color ${color}`);
+        if (!board[i] || !board[i][j]) {
+            console.error(`Cell at [${i}, ${j}] is undefined!`);
+            return false; 
+        }
         return (
             (i > 0 && board[i - 1][j].style.backgroundColor === color) ||
             (i < rows - 1 && board[i + 1][j].style.backgroundColor === color) ||
@@ -62,14 +67,11 @@ function createGameGrid(rows, cols) {
     }
 
     fillBoardWithColors();
-
     colors.forEach(color => {
         const button = document.createElement('div');
         button.classList.add('color-button', color);
         button.id = color;
         colorButtonsContainer.appendChild(button);
     });
-
-    // Pass board to logic.js
     initializeLogic(board);
 }
