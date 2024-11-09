@@ -1,74 +1,90 @@
 const playerColors = [];
 const colors = ["green", "red", "blue", "black", "yellow", "magenta"];
+let player = 0;
+console.log("logic.js loaded");
 
-function pressButton(color) {
-    console.log(`${color} button clicked!`);
-    changePlayerColor(color);  // Assuming this function is defined elsewhere
-}
-
-function greenButton(){
-    console.log("TEST GREEN");
-}
-document.getElementById('green').addEventListener('click', function() {
-    console.log('Green button clicked!');
-    pressButton("green");
-});
-
-document.getElementById('red').addEventListener('click', function() {
-    console.log('Red button clicked!');
-    pressButton("red");
-});
-
-document.getElementById('blue').addEventListener('click', function() {
-    console.log('Blue button clicked!');
-    pressButton("blue");
-});
-
-document.getElementById('yellow').addEventListener('click', function() {
-    console.log('Yellow button clicked!');
-    pressButton("yellow");
-});
-
-document.getElementById('black').addEventListener('click', function() {
-    console.log('Black button clicked!');
-    pressButton("black");
-});
-
-document.getElementById('magenta').addEventListener('click', function() {
-    console.log('Magenta button clicked!');
-    pressButton("magenta");
-});
-
-
-// Assuming you have a function to handle board initialization
 function initializeLogic(board) {
     console.log("Board passed to logic.js:", board);
-    playerColors[0] = board[0][board[0].length - 1].style.backgroundColor;
-    playerColors[1] = board[board.length - 1][0].style.backgroundColor;
+    playerColors[0] = board[board.length - 1][0].style.backgroundColor;
+    playerColors[1] = board[0][board[0].length - 1].style.backgroundColor;
+    console.log(playerColors[0]);
+    console.log(playerColors[1]);
 }
 
+function greenButton() {
+    console.log("Green button clicked!");
+    pressButton("green");
+}
 
-// Function to handle button click
+function redButton() {
+    console.log("Red button clicked!");
+    pressButton("red");
+}
+
+function blueButton() {
+    console.log("Blue button clicked!");
+    pressButton("blue");
+}
+
+function yellowButton() {
+    console.log("Yellow button clicked!");
+    pressButton("yellow");
+}
+
+function blackButton() {
+    console.log("Black button clicked!");
+    pressButton("black");
+}
+
+function magentaButton() {
+    console.log("Magenta button clicked!");
+    pressButton("magenta");
+}
+
 function pressButton(color) {
-    console.log(`${color} button clicked!`);
-    // You can include logic here to change player color, update game state, etc.
-    changePlayerColor(color);
+    const previousColor = playerColors[player];
+    playerColors[player] = color;
+    console.log(`Player ${player + 1} chose ${color}`);
+    updatePlayerTile(player, color);
+    disableSelectedButtons();
+    reenablePreviousColor(previousColor);
+    player = (player + 1) % 2;
 }
 
-// Function to position color buttons below the grid
-function positionButtonsBelowGrid() {
-    const gameBoard = document.getElementById('gameBoard');
+function updatePlayerTile(player, color) {
+    if (player === 0) {
+        board[board.length - 1][0].style.backgroundColor = color;
+    } else {
+        board[0][board[0].length - 1].style.backgroundColor = color;
+    }
+    console.log(`Player ${player + 1}'s tile updated to ${color}`);
+}
+
+function disableSelectedButtons() {
     const colorButtonsContainer = document.getElementById('colorButtons');
+    const buttons = colorButtonsContainer.querySelectorAll('.color-button');
     
-    // Get the bottom position of the game board
-    const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
+    buttons.forEach(button => {
+        const buttonColor = button.id;
 
-    // Set margin-top of the color buttons container to push it just below the grid
-    colorButtonsContainer.style.marginTop = `${gameBoardBottom + 20}px`; // Add 20px for a small gap
+        if (playerColors.includes(buttonColor)) {
+            button.classList.add('disabled');
+            button.style.pointerEvents = 'none';
+        }
+    });
 }
 
-// Example function to change the player color (replace with your logic)
-function changePlayerColor(color) {
-    // Logic to change player color
-    console.log(`Changing player color to ${color}`);
+function reenablePreviousColor(previousColor) {
+    if (previousColor) {
+        const colorButtonsContainer = document.getElementById('colorButtons');
+        const buttons = colorButtonsContainer.querySelectorAll('.color-button');
+        
+        buttons.forEach(button => {
+            const buttonColor = button.id;  
+            if (buttonColor === previousColor && !playerColors.includes(buttonColor)) {
+                button.classList.remove('disabled');
+                button.style.pointerEvents = 'auto'; 
+            }
+        });
+    }
 }
