@@ -6,6 +6,9 @@ function pressButton(color) {
     changePlayerColor(color);  // Assuming this function is defined elsewhere
 }
 
+function greenButton(){
+    console.log("TEST GREEN");
+}
 document.getElementById('green').addEventListener('click', function() {
     console.log('Green button clicked!');
     pressButton("green");
