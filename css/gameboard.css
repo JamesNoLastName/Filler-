@@ -21,9 +21,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
-    flex-grow: 1; 
-    overflow: hidden; 
+    justify-content: flex-start;
+    flex-grow: 1;
+    overflow: hidden;
 }
 
 #gameBoard {
@@ -47,41 +47,49 @@
     box-sizing: border-box;
 }
 
-/* Container for the color buttons */
-.color-buttons-container {
+#buttonsContainer {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: max-content;
+    margin-top: 20px;
+}
+
+#colorButtons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 1rem;
-    width: flex;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.3);  /* Slightly transparent background */
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
 }
 
-/* General style for each color button */
-.color-button {
-    width: 40px; /* Size of the button */
-    height: 40px;
-    border-radius: 50%;  /* Make them round */
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;  /* Smooth hover effect */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);  /* Small shadow effect */
-}
-
-/* Hover effect for buttons */
 .color-button:hover {
-    transform: scale(1.1);  /* Scale up the button when hovered */
+    transform: scale(1.1);
 }
 
-/* Specific colors for each button */
 #colorButtons .green { background-color: rgb(0, 255, 0); }
 #colorButtons .red { background-color: rgb(255, 0, 0); }
 #colorButtons .blue { background-color: rgb(0, 255, 255); }
 #colorButtons .yellow { background-color: rgb(255, 255, 0); }
 #colorButtons .black { background-color: rgb(0, 0, 0); }
 #colorButtons .magenta { background-color: rgb(128, 0, 128); }
+
+.color-button.disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
