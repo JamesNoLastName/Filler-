@@ -35,10 +35,8 @@ function removeGame() {
         const index = Math.floor(Math.random() * gameList.length);
         const gameItem = document.querySelectorAll('.game-item')[index];
 
-        // Add greyed-out class
         gameItem.classList.add('greyed-out');
 
-        // Wait 3 seconds before removing
         setTimeout(() => {
             gameList.splice(index, 1);
             updateGameList();
